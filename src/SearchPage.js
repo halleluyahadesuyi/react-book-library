@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import BookSelection from './BookSelection'
 
+// Destructure props
 function SearchPage({ books, onMoveBook, query, results }) {
   const { state, setState } = useState({ query: '', results: [] })
 
@@ -87,7 +88,7 @@ function SearchPage({ books, onMoveBook, query, results }) {
                       }
                     </li>
                   </ol>
-                  
+
                   <Link
                     to='/'
                     className="return-home">

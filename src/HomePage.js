@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import BookSelection from './BookSelection'
 import './App.css'
 
+// Array of objects for selection of books
 const bookshelves = [
   {
     key: 'currentlyReading',
@@ -18,6 +19,7 @@ const bookshelves = [
   },
 ];
 
+// Destructure props
 function HomePage({ books, onMoveBook }) {
 
   function handleBookSelection(bookShelfKey) {

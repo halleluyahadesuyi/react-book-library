@@ -1,5 +1,6 @@
 import React from 'react'
 
+// Destructure props
 function BookSelection({ book, moveBook }) {
 
   return (
