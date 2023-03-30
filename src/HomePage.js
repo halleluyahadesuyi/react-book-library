@@ -41,11 +41,11 @@ function HomePage({ books, onMoveBook }) {
                 <h2 className="bookshelf-title">{shelf.name}</h2>
                 {handleBookSelection(shelf.key).length === 0
                   ? (<div>
-                    <h4>There are no books on this shelf at the moment</h4>
+                    <h4>Books are loading...</h4>
                   </div>
                   )
-
-                  : (<div className="bookshelf-books">
+                  :
+                  (<div className="bookshelf-books">
                     <ol className="books-grid">
                       <li>
                         {handleBookSelection(shelf.key).map((book) => (
@@ -68,10 +68,9 @@ function HomePage({ books, onMoveBook }) {
         <Link
           to='/search'
           className="open-search">
-          <button>Add a book</button>
+          <button></button>
         </Link>
       </div>
-
     </div>
   )
 }

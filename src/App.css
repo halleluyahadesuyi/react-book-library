@@ -38,42 +38,6 @@ body, .app {
   padding: 0 10px 20px;
 }
 
-.open-search {
-  position: fixed;
-  right: 25px;
-  bottom: 25px;
-}
-
-.open-search button {
-  display: block;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: #2e7d32;
-  background-image: url("./icons/add.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 28px;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  font-size: 0;
-  outline: 0;
-}
-
-.close-search {
-  display: block;
-  top: 20px;
-  left: 15px;
-  width: 50px;
-  height: 53px;
-  background-image: url("./icons/arrow-back.svg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 28px;
-  font-size: 0;
-  border: none;
-  outline: none;
-}
-
 @media (min-width: 600px) {
   .bookshelf {
     padding: 0 20px 40px;
@@ -88,13 +52,13 @@ body, .app {
   text-align: center;
 }
 
-.open-search {
+.open-search, .return-home {
   position: fixed;
   right: 25px;
   bottom: 25px;
 }
 
-.open-search button {
+.open-search button, .return-home {
   display: block;
   width: 50px;
   height: 50px;
@@ -113,6 +77,9 @@ body, .app {
   background-color: rgb(0, 102, 0);
 }
 
+.return-home {
+  background-image: url('./icons/arrow-back.svg');
+}
 
 /* search page */
 
@@ -175,6 +142,9 @@ button:active {
 }
 
 .books-grid li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   padding: 10px 15px;
   text-align: left;
 }
