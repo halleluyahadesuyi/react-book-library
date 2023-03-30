@@ -1,64 +1,54 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './HomePage'
 import SearchPage from './SearchPage'
 import * as BooksAPI from './BooksAPI'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
-class BooksApp extends Component {
+function App() {
+  const [books, setBooks] = useState([])
 
-  state = {
-    books: []
-  }
-
-  componentDidMount() {
-    BooksAPI.getAll()
-    .then((books) => {
-      this.setState(() => ({
-        books
-      }))
+  useEffect(() => {
+    BooksAPI.getAll().then((books) => {
+      setBooks(books)
     })
-  }
+  }, [])
 
-  moveBook = (book, shelfName) => {
-    const bookFromState = this.state.books.find(b => b.id === book.id);
-    if (bookFromState) {
-      // update existing
-      bookFromState.shelf = shelfName;
-      BooksAPI.update(book, shelfName)
-      .then(this.setState(currentState => ({
-        books: currentState.books
-      })))
+  const moveBook = (book, shelfName) => {
+    const bookFromShelfState = books.find((b) => b.id === book.id);
+    if (bookFromShelfState) {
+      // update the existing shelf
+      bookFromShelfState.shelf = shelfName;
+      BooksAPI.update(book, shelfName).then(() => {
+        setBooks([...books]);
+      });
     } else {
-      // add new one
-        book.shelf = shelfName;
-        BooksAPI.update(book, shelfName)
-        .then(this.setState(prevState => ({
-          books: prevState.books.concat(book)
-      })))
+      // add new book to shelf
+      book.shelf = shelfName;
+      BooksAPI.update(book, shelfName).then(() => {
+        setBooks([...books, book]);
+      });
     }
   };
 
-  render() {
-    return (
-      <div>
-        <BrowserRouter>
-          <Routes>
-            <Route exact path='/' element={
-              <HomePage
-              books={this.state.books}
-              onMoveBook={this.moveBook}
-              />
-            } />
-            <Route exact path='/search' element={
-              <SearchPage
-              books={this.state.books}
-              onMoveBook={this.moveBook}
-              />
-            } />
-          </Routes>
-        </BrowserRouter>
-      </div>
-    )
-  }
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route exact path='/' element={
+            <HomePage
+              books={books}
+              onMoveBook={moveBook}
+            />
+          } />
+          <Route exact path='/search' element={
+            <SearchPage
+              books={books}
+              onMoveBook={moveBook}
+            />
+          } />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  )
 }
-export default BooksApp
+export default App

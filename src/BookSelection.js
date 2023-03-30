@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 // Destructure props
 function BookSelection({ book, moveBook }) {
@@ -41,6 +42,11 @@ function BookSelection({ book, moveBook }) {
       ) : (<div className="book-authors">Author is currently unavailable</div>)}
     </section>
   )
+}
+
+BookSelection.propTypes = {
+    book: PropTypes.object.isRequired,
+    moveBook: PropTypes.func.isRequired
 }
 
 export default BookSelection

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import BookSelection from './BookSelection'
+import PropTypes from 'prop-types'
 import './App.css'
 
 // Array of objects for selection of books
@@ -48,7 +49,8 @@ function HomePage({ books, onMoveBook }) {
                     <ol className="books-grid">
                       <li>
                         {handleBookSelection(shelf.key).map((book) => (
-                          <BookSelection key={book.id}
+                          <BookSelection
+                            key={book.id}
                             book={book}
                             moveBook={onMoveBook}
                           />
@@ -66,11 +68,17 @@ function HomePage({ books, onMoveBook }) {
         <Link
           to='/search'
           className="open-search">
+          <button>Add a book</button>
         </Link>
       </div>
 
     </div>
   )
 }
+
+HomePage.propTypes = {
+  books: PropTypes.array.isRequired,
+  onMoveBook: PropTypes.func.isRequired,
+};
 
 export default HomePage
