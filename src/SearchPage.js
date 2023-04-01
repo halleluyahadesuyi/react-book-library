@@ -22,8 +22,8 @@ import PropTypes from 'prop-types'
 
 // Destructure props
 function SearchPage({ books, onMoveBook }) {
-  
-  const [query, setQuery] = useState('')
+
+  const [query, setQuery] = useState("")
   const [results, setResults] = useState([])
 
   const updateSearchQuery = (query) => {
@@ -33,13 +33,12 @@ function SearchPage({ books, onMoveBook }) {
       myBookSearch(query)
     }
     else {
-      setQuery('')
-      setResults([])
+      clearSearchQuery()
     }
   }
 
   const clearSearchQuery = () => {
-    setQuery('')
+    setQuery("")
     setResults([])
   }
 
@@ -61,18 +60,18 @@ function SearchPage({ books, onMoveBook }) {
     if (query.length > 0)
       BooksAPI.search(query)
         .then(searchResults => {
-          if (query === query) {
-              setResults(updateCurrentShelves(searchResults))
+          if (query) {
+            setResults(updateCurrentShelves(searchResults))
           }
         })
   }
-  
+
   return (
     <div className="search-books">
       <div className="search-books-bar">
         <button
           className="close-search"
-          onClick={clearSearchQuery}>
+          onClick={clearSearchQuery}>X
         </button>
 
         <div className="search-books-input-wrapper">
@@ -88,17 +87,17 @@ function SearchPage({ books, onMoveBook }) {
       <div className="search-books-results">
         <ol className="books-grid">
           <li>
-            {results ? (
-              results.map((book) => (
-                <BookSelection
-                  key={book.id}
-                  book={book}
-                  moveBook={onMoveBook}
-                />
-              ))
-            ) : (
-              <h4>No results for, "{query}"</h4>
-            )
+            { results && query !== "" ? (
+                results.map((book) => (
+                  <BookSelection
+                    key={book.id}
+                    book={book}
+                    moveBook={onMoveBook}
+                  />
+                ))
+              ) : (
+                <h4>Type in a "valid" search term for this app above...</h4>
+              )
             }
           </li>
         </ol>
@@ -110,7 +109,7 @@ function SearchPage({ books, onMoveBook }) {
       </div>
     </div>
   )
-          
+
 }
 
 SearchPage.propTypes = {

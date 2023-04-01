@@ -101,7 +101,7 @@ body, .app {
 .search-books-bar input {
   width: 100%;
   padding: 15px 10px;
-  font-size: 1.25em;
+  font-size: 1.25rem;
   border: none;
   outline: none;
 }
@@ -112,13 +112,9 @@ body, .app {
   left: 15px;
   width: 50px;
   height: 53px;
-  background-image: url('./icons/arrow-back.svg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: 28px;
-  font-size: 0;
-  border: none;
+  font-size: 18px;
   outline: none;
+  color: red;
 }
 
 button:active {
