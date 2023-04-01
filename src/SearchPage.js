@@ -77,7 +77,7 @@ function SearchPage({ books, onMoveBook }) {
         <div className="search-books-input-wrapper">
           <input
             type="text"
-            placeholder="Search by title, author or subject"
+            placeholder="Search by title or author"
             value={query}
             onChange={(event) => updateSearchQuery(event.target.value)}
           />
