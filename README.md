@@ -9,7 +9,7 @@ This project is based on Udacity’s MyReads starter template and demonstrates p
 
 ---
 
-## 🚀 Features
+## Features
 
 - Search for books by title or author
 - Move books between shelves in real-time
@@ -23,11 +23,11 @@ This project is based on Udacity’s MyReads starter template and demonstrates p
 
 👉 [View Live App](https://a-react-book-library.netlify.app/)  
 
-*(Deployed on Netlify).*
+> Deployed on Netlify.
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 
 - React
 - React Router
@@ -37,18 +37,18 @@ This project is based on Udacity’s MyReads starter template and demonstrates p
 
 ---
 
-## 📦 Installation
+## Installation
 
 - git clone https://github.com/halleluyahadesuyi/react-book-library.git
 - cd react-book-library
 - npm install
 - npm start
 
-*(The app will be available at http://localhost:3000).*
+> The app will be available at http://localhost:3000
 
 ---
 
-## 🔍 Usage
+## Usage
 
 - On the main page, books are grouped by shelf.
 - Click the `+` icon to search for new books.
@@ -76,7 +76,7 @@ Here are some terms that work:
 
 ---
 
-## 🧪 Deployment
+## Deployment
 
 This project is ready for deployment on platforms like Vercel, Netlify, or GitHub Pages.
 
@@ -131,7 +131,7 @@ react-book-library/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 Contributions are welcome! If you’d like to add features or suggest improvements:
 
 1. Fork this repo
